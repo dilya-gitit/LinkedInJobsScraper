@@ -109,7 +109,7 @@ class ScrapyBot:
                 self.scroll_to(job)
                 [position, company, location, details] = self.get_position_data(job)
                 print(position)
-                # do something with the data...
+                # here I need to collect the data
 
             # на след страницу
             bot.driver.find_element_by_xpath(f"//button[@aria-label='Page {pg}']").click()
@@ -120,8 +120,8 @@ class ScrapyBot:
 
 
 if __name__ == "__main__":
-    email = "myemail@com"
-    password = "mypswd"
+    EMAIL = "myemail@com"
+    PASSWORD = "mypswd"
     # log in and save cookies:
     bot.login(email=EMAIL, password=PASSWORD)
     bot.save_cookie("data/cookies.txt")
@@ -137,7 +137,5 @@ if __name__ == "__main__":
     for job in jobs:
         bot.scroll_to(job)
         [position, company, location, details] = bot.get_position_data(job)
-
         # here I need to collect the data
-
     bot.close_session()
